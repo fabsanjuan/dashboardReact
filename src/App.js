@@ -6,10 +6,12 @@ import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 import { Navbar, Footer, Sidebar, ThemeSettings } from './components';
 import { Ecommerce, Orders, Calendar, Employees, Stacked, Pyramid, Customers, Kanban, Area, Bar, Pie, Line, Financial, ColorPicker, ColorMapping, Editor } from './pages';
 
+import { useStateContext } from './contexts/ContextProvider';
+
 import './App.css';
 
 const App = () => {
-    const activeMenu = true;
+    const { activeMenu } = useStateContext();
 
     return (
         <div>
@@ -31,7 +33,7 @@ const App = () => {
                         <div className='w-0 dark:bg-secondary-dark-bg'>
                             <Sidebar />
                         </div>
-                    )};
+                    )}
                     <div className={`dark:bg-main-bg bg-main-bg min-h-screen w-full ${activeMenu ? 'md:ml-72' : 'flex-2'}`}>
                         <div className='fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full'>
                             <Navbar />
