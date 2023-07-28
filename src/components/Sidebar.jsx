@@ -8,7 +8,7 @@ import { links } from '../data/dummy';
 import { useStateContext } from '../contexts/ContextProvider';
 
 const Sidebar = () => {
-  const { activeMenu, setActiveMenu, screenSize } = useStateContext();
+  const { activeMenu, setActiveMenu, screenSize, currentColor } = useStateContext();
 
   const handleCloseSideBar = () => {
     if(activeMenu && screenSize <= 900) {
@@ -31,7 +31,7 @@ const Sidebar = () => {
             <button 
               type='button'
               onClick={() => setActiveMenu((prevActiveMenu) => !prevActiveMenu)} 
-              className='text-xl rounded-full p-3 hover:bg-light-gray mt-4 block md:hidden'
+              className='text-xl rounded-full p-3 hover:bg-light-gray mt-4 block'
             >
               <MdOutlineCancel />
             </button>
@@ -48,6 +48,7 @@ const Sidebar = () => {
                   to={`/${link.name}`}
                   key={link.name}
                   onClick={handleCloseSideBar}    //Adding the handleclick to each nav link ensures in the new page the sidebar is closed not remaining open for mobiles.
+                  style={({ isActive }) => ({backgroundColor: isActive ? currentColor : ''})}
                   className={({ isActive }) => (isActive ? activeLink : normalLink)}
                   >
                     {link.icon}
