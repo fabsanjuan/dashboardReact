@@ -13,14 +13,14 @@ const Cart = () => {
     <div className='bg-half-transparent w-full fixed nav-item top-0 right-0'>
       <div className='float-right h-screen duration-1000 ease-in-out dark:text-gray-200 transition-all dark:bg-[#484B52] bg-white md:w-400 p-8'>
         <div className='flex justify-between items-center'>
-          <p className='font-semibold text-lg'>Shopping Cart</p>g
+          <p className='font-semibold text-lg'>Shopping Cart</p>
           <button 
-              type='button'
-              onClick={() => setIsClicked(false)} 
-              className='text-xl rounded-full p-3 hover:bg-light-gray mt-4 block'
-            >
-              <MdOutlineCancel />
-            </button>
+          type='button'
+          onClick={() => setIsClicked(false)} 
+          className='text-xl rounded-full p-3 hover:bg-light-gray mt-4 block'
+          >
+            <MdOutlineCancel />
+          </button>
         </div>
         {cartData?.map((item, index) => (
           <div key={index}>
